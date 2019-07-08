@@ -1,0 +1,22 @@
+---                                                                                                                                                                   
+ - name: installing python3                                                                                                                                           
+   yum: name=python3*  state=present                                                                                                                                  
+ - name: download get-pip.py                                                                                                                                          
+   get_url: url=https://bootstrap.pypa.io/get-pip.py dest=/tmp                                                                                                        
+ - name: install pip                                                                                                                                                  
+   command: "python /tmp/get-pip.py"                                                                                                                                  
+ - pip:                                                                                                                                                               
+     name: boto                                                                                                                                                       
+ - name: launch ec2                                                                                                                                                   
+   ec2:                                                                                                                                                               
+     aws_access_key: ----------                                                                                                                           
+     aws_secret_key: --------                                                                                                      
+     key_name: ------                                                                                                                                                
+     instance_type: -------                                                                                                                                        
+     image: --------                                                                                                                                              
+     region: --------                                                                                                                                           
+     vpc_subnet_id: -------                                                                                                                                   
+     group: default                                                                                                                                                   
+     count: 1                                                                                                                                                         
+     assign_public_ip: yes                                                                                                                                            
+                                     
